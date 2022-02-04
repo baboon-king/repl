@@ -35,10 +35,11 @@ const App = {
     return () =>
       h(Repl, {
         store,
-        layout: 'vertical'
+        layout: 'vertical',
         // showCompileOutput: false,
         // showImportMap: false
         // onlyOutputPreview: true
+        // showNewFile: false,
       })
   }
 }

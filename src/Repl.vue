@@ -14,7 +14,8 @@ interface Props {
   clearConsole?: boolean
   sfcOptions?: SFCOptions
   layout?: string
-  onlyOutputPreview?: boolean
+  onlyOutputPreview?: boolean,
+  showNewFile?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -23,7 +24,8 @@ const props = withDefaults(defineProps<Props>(), {
   showCompileOutput: true,
   showImportMap: true,
   clearConsole: true,
-  onlyOutputPreview: false
+  onlyOutputPreview: false,
+  showNewFile: true
 })
 
 props.store.options = props.sfcOptions
@@ -32,6 +34,7 @@ provide('store', props.store)
 provide('autoresize', props.autoResize)
 provide('import-map', toRef(props, 'showImportMap'))
 provide('clear-console', toRef(props, 'clearConsole'))
+provide('show-new-file', toRef(props, "showNewFile"))
 </script>
 
 <template>

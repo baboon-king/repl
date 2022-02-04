@@ -3,6 +3,7 @@ import { Store } from '../store'
 import { computed, inject, ref, VNode, Ref } from 'vue'
 
 const store = inject('store') as Store
+const showNewFile = inject('show-new-file') as boolean
 
 const pending = ref(false)
 const pendingFilename = ref('Comp.vue')
@@ -87,7 +88,7 @@ function horizontalScroll(e: WheelEvent) {
         @vnodeMounted="focus"
       />
     </div>
-    <button class="add" @click="startAddFile">+</button>
+    <button v-if="showNewFile" class="add" @click="startAddFile">+</button>
 
     <div v-if="showImportMap" class="import-map-wrapper">
       <div

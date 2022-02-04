@@ -4,6 +4,7 @@ import Editor from './editor/Editor.vue'
 import Output from './output/Output.vue'
 import { Store, ReplStore, SFCOptions } from './store'
 import { provide, toRef } from 'vue'
+import Preview from './output/Preview.vue'
 
 interface Props {
   store?: Store
@@ -13,6 +14,7 @@ interface Props {
   clearConsole?: boolean
   sfcOptions?: SFCOptions
   layout?: string
+  onlyOutputPreview?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -20,7 +22,8 @@ const props = withDefaults(defineProps<Props>(), {
   autoResize: true,
   showCompileOutput: true,
   showImportMap: true,
-  clearConsole: true
+  clearConsole: true,
+  onlyOutputPreview: false
 })
 
 props.store.options = props.sfcOptions
@@ -33,7 +36,8 @@ provide('clear-console', toRef(props, 'clearConsole'))
 
 <template>
   <div class="vue-repl">
-    <SplitPane :layout="layout">
+    <Preview show v-if="onlyOutputPreview" />
+    <SplitPane v-else :layout="layout">
       <template #left>
         <Editor />
       </template>

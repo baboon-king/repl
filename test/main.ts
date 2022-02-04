@@ -38,6 +38,7 @@ const App = {
         layout: 'vertical'
         // showCompileOutput: false,
         // showImportMap: false
+        // onlyOutputPreview: true
       })
   }
 }

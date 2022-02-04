@@ -1,5 +1,5 @@
 {
-  "name": "@vue/repl",
+  "name": "@babouin/repl",
   "version": "1.0.0",
   "description": "Vue component for editing Vue components",
   "main": "dist/ssr-stub.js",
@@ -21,7 +21,10 @@
     "dev": "vite",
     "build": "vite build",
     "build-types": "vue-tsc -p tsconfig.build.json && api-extractor run -c api-extractor.json && rimraf dist/src",
-    "prepublishOnly": "npm run build && npm run build-types"
+    "prepublishOnly": "npm run build && npm run build-types",
+    "patch": "npm version patch && npm publish",
+    "minor": "npm version minor && npm publish",
+    "major": "npm version major && npm publish"
   },
   "repository": {
     "type": "git",
@@ -49,5 +52,9 @@
   },
   "peerDependencies": {
     "vue": "^3.2.13"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   }
 }

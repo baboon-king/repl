@@ -8,7 +8,8 @@ import {
   watch,
   WatchStopHandle,
   inject,
-  Ref
+  Ref,
+  unref
 } from 'vue'
 import srcdoc from './srcdoc.html?raw'
 import { PreviewProxy } from './PreviewProxy'
@@ -19,6 +20,7 @@ defineProps<{ show: boolean }>()
 
 const store = inject('store') as Store
 const clearConsole = inject('clear-console') as Ref<boolean>
+const importMapShimsURl = inject('import-map-shims-url') as Ref<string>
 const container = ref()
 const runtimeError = ref()
 const runtimeWarning = ref()
@@ -85,10 +87,17 @@ function createSandbox() {
   if (!importMap.imports.vue) {
     importMap.imports.vue = store.state.vueRuntimeURL
   }
-  const sandboxSrc = srcdoc.replace(
-    /<!--IMPORT_MAP-->/,
-    JSON.stringify(importMap)
-  )
+
+  const sandboxSrc = srcdoc
+    .replace(
+      /<!--IMPORT_MAP_SHIMS-->/,
+      unref(importMapShimsURl)
+    )
+    .replace(
+      /<!--IMPORT_MAP-->/,
+      JSON.stringify(importMap)
+    )
+
   sandbox.srcdoc = sandboxSrc
   container.value.appendChild(sandbox)
 

@@ -40,6 +40,7 @@ const App = {
         // showImportMap: false
         // onlyOutputPreview: true
         // showNewFile: false,
+        // importMapShimsURL: "https://unpkg.com/es-module-shims@0.10.1/dist/es-module-shims.min.js"
       })
   }
 }

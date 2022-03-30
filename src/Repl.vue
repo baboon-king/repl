@@ -16,7 +16,7 @@ interface Props {
   layout?: string
   onlyOutputPreview?: boolean,
   showNewFile?: boolean
-  importMapShimsURL?: string
+  importMapShimsUrl?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -27,7 +27,7 @@ const props = withDefaults(defineProps<Props>(), {
   clearConsole: true,
   onlyOutputPreview: false,
   showNewFile: true,
-  importMapShimsURL: 'https://https://unpkg.com/es-module-shims@0.10.1/dist/es-module-shims.min.js',
+  importMapShimsUrl: 'https://https://unpkg.com/es-module-shims@0.10.1/dist/es-module-shims.min.js',
 })
 
 props.store.options = props.sfcOptions
@@ -37,7 +37,7 @@ provide('autoresize', props.autoResize)
 provide('import-map', toRef(props, 'showImportMap'))
 provide('clear-console', toRef(props, 'clearConsole'))
 provide('show-new-file', toRef(props, "showNewFile"))
-provide('import-map-shims-url', toRef(props, "importMapShimsURL"))
+provide('import-map-shims-url', toRef(props, "importMapShimsUrl"))
 </script>
 
 <template>

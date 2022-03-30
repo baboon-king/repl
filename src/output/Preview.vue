@@ -20,7 +20,7 @@ defineProps<{ show: boolean }>()
 
 const store = inject('store') as Store
 const clearConsole = inject('clear-console') as Ref<boolean>
-const importMapShimsURl = inject('import-map-shims-url') as Ref<string>
+const importMapShimsUrl = inject('import-map-shims-url') as Ref<string>
 const container = ref()
 const runtimeError = ref()
 const runtimeWarning = ref()
@@ -91,7 +91,7 @@ function createSandbox() {
   const sandboxSrc = srcdoc
     .replace(
       /<!--IMPORT_MAP_SHIMS-->/,
-      unref(importMapShimsURl)
+      unref(importMapShimsUrl)
     )
     .replace(
       /<!--IMPORT_MAP-->/,

@@ -27,7 +27,7 @@ const props = withDefaults(defineProps<Props>(), {
   clearConsole: true,
   onlyOutputPreview: false,
   showNewFile: true,
-  importMapShimsUrl: 'https://https://unpkg.com/es-module-shims@0.10.1/dist/es-module-shims.min.js',
+  importMapShimsUrl: 'https://unpkg.com/es-module-shims@0.10.1/dist/es-module-shims.min.js',
 })
 
 props.store.options = props.sfcOptions

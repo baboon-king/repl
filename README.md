@@ -1,3 +1,9 @@
+> Fork from https://github.com/vuejs/repl focus work for custom-card of iduo-portal
+
+> Archived
+
+> Move to [here](https://codeup.aliyun.com/iduo/IduoFE/iduo-portal-vue-repl)
+
 # @vue/repl
 
 Vue SFC REPL as a Vue 3 component.
@@ -6,8 +12,8 @@ Vue SFC REPL as a Vue 3 component.
 
 ```vue
 <script setup>
-import { Repl } from '@vue/repl'
-import '@vue/repl/style.css'
+import { Repl } from "@vue/repl";
+import "@vue/repl/style.css";
 </script>
 
 <template>
